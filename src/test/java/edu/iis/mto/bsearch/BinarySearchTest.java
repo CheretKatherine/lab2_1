@@ -50,6 +50,22 @@ class BinarySearchTest {
         bs = BinarySearch.search(1, seq2);
         assertFalse(bs.isFound());
         assertEquals(NOT_FOUND, bs.getPosition());
+
+        int[] seq3 = {-110000, -234, -34, -6, 0, 1, 4, 9, 12, 45, 67, 456, 999, 12345, 999999};
+
+        //test6
+        for(int i=0; i<seq2.length; i++){
+            bs = BinarySearch.search(seq3[i], seq3);
+            assertTrue(bs.isFound());
+            assertEquals(i, bs.getPosition());
+        }
+
+        //test7
+        assertThrows(IllegalArgumentException.class, () -> BinarySearch.search(1, new int[]{}));
+
+        //test8
+        assertThrows(IllegalArgumentException.class, () -> BinarySearch.search(1, null));
+
     }
 
 }
