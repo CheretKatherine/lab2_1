@@ -22,14 +22,13 @@ public class BinarySearch {
      *         sekwencji, jezeli nie znaleziony -1)
      */
     public static SearchResult search(int key, int[] seq) {
-        if(seq==null || seq.length<=0)
+        if(seq==null || seq.length<=0 || !checkArray(seq))
             throw new IllegalArgumentException();
 
         int start = 0;
         int end = seq.length - 1;
         int center;
         SearchResult result = new SearchResult();
-
 
         while (start <= end) {
             center = (start + end) / 2;
@@ -48,4 +47,11 @@ public class BinarySearch {
         return result;
     }
 
+    private static boolean checkArray(int[] seq) {
+        for(int ind=0; ind < seq.length-1; ind++){
+            if(seq[ind]>seq[ind+1])
+                return false;
+        }
+        return true;
+    }
 }

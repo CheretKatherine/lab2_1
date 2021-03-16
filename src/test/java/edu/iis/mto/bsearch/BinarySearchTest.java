@@ -1,8 +1,6 @@
 package edu.iis.mto.bsearch;
 
 import static org.junit.jupiter.api.Assertions.*;
-
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -66,6 +64,17 @@ class BinarySearchTest {
         //test8
         assertThrows(IllegalArgumentException.class, () -> BinarySearch.search(1, null));
 
+        //test9
+        int[] seq4 = {-4, 0, 6, 34, 46, 689, 56};
+        assertThrows(IllegalArgumentException.class, () -> BinarySearch.search(1, seq4));
+
+        //test10
+        int[] seq5 = {5, 5, 5, 5, 4};
+        assertThrows(IllegalArgumentException.class, () -> BinarySearch.search(1, seq5));
+
+        //test10
+        int[] seq6 = {0, 1, 0, 1};
+        assertThrows(IllegalArgumentException.class, () -> BinarySearch.search(1, seq6));
     }
 
 }
